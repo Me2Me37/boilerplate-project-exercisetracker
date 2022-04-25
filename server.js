@@ -1,5 +1,4 @@
 const express = require('express')
-const mySecret = process.env['MONGO_URI']
 const app = express()
 const cors = require('cors')
 require('dotenv').config()
@@ -29,7 +28,7 @@ const ExerciseInfo = mongoose.model('exerciseInfo', exerciseSchema);
 const LogInfo = mongoose.model('logInfo', logSchema);
 
 // Config
-mongoose.connect(mySecret, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true },
   () => { console.log("Connected to MONGO BONGO DB")}
